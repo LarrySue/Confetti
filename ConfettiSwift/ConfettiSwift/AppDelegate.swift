@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = HomeViewController()
         let navVc = UINavigationController(rootViewController: vc)
         
+        vc.title = "Confetti"
+        
         window?.rootViewController = navVc
         window?.makeKeyAndVisible()
         

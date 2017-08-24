@@ -7,25 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47F8D1771F4E6EDB00A3D2B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D1761F4E6EDB00A3D2B9 /* AppDelegate.swift */; };
-		47F8D18A1F4E6F1400A3D2B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F8D1881F4E6F1400A3D2B9 /* LaunchScreen.xib */; };
-		47F8D18D1F4E6F5800A3D2B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D18B1F4E6F5800A3D2B9 /* HomeViewController.swift */; };
-		47F8D1921F4E724800A3D2B9 /* Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D1911F4E724800A3D2B9 /* Confetti.swift */; };
-		47F8D1941F4E759200A3D2B9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F8D1931F4E759200A3D2B9 /* HomeViewController.xib */; };
+		47F8D1D71F4EB3F200A3D2B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D1D61F4EB3F200A3D2B9 /* main.m */; };
+		47F8D1F31F4EB41B00A3D2B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D1ED1F4EB41B00A3D2B9 /* AppDelegate.m */; };
+		47F8D1F41F4EB41B00A3D2B9 /* Confetti.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D1EF1F4EB41B00A3D2B9 /* Confetti.m */; };
+		47F8D1F51F4EB41B00A3D2B9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F8D1F11F4EB41B00A3D2B9 /* HomeViewController.m */; };
+		47F8D1F61F4EB41B00A3D2B9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F8D1F21F4EB41B00A3D2B9 /* HomeViewController.xib */; };
+		47F8D1F91F4EB43700A3D2B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F8D1F71F4EB43700A3D2B9 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47F8D1731F4E6EDB00A3D2B9 /* ConfettiSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConfettiSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		47F8D1761F4E6EDB00A3D2B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		47F8D1821F4E6EDB00A3D2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47F8D1891F4E6F1400A3D2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		47F8D18B1F4E6F5800A3D2B9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		47F8D1911F4E724800A3D2B9 /* Confetti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Confetti.swift; sourceTree = "<group>"; };
-		47F8D1931F4E759200A3D2B9 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		47F8D1D21F4EB3F200A3D2B9 /* ConfettiObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConfettiObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F8D1D61F4EB3F200A3D2B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		47F8D1E61F4EB3F200A3D2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47F8D1EC1F4EB41B00A3D2B9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		47F8D1ED1F4EB41B00A3D2B9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		47F8D1EE1F4EB41B00A3D2B9 /* Confetti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Confetti.h; sourceTree = "<group>"; };
+		47F8D1EF1F4EB41B00A3D2B9 /* Confetti.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Confetti.m; sourceTree = "<group>"; };
+		47F8D1F01F4EB41B00A3D2B9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		47F8D1F11F4EB41B00A3D2B9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		47F8D1F21F4EB41B00A3D2B9 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		47F8D1F81F4EB43700A3D2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		47F8D1701F4E6EDB00A3D2B9 /* Frameworks */ = {
+		47F8D1CF1F4EB3F200A3D2B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,73 +40,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		47F8D16A1F4E6EDB00A3D2B9 = {
+		47F8D1C91F4EB3F200A3D2B9 = {
 			isa = PBXGroup;
 			children = (
-				47F8D1751F4E6EDB00A3D2B9 /* ConfettiSwift */,
-				47F8D1741F4E6EDB00A3D2B9 /* Products */,
+				47F8D1D41F4EB3F200A3D2B9 /* ConfettiObjC */,
+				47F8D1D31F4EB3F200A3D2B9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		47F8D1741F4E6EDB00A3D2B9 /* Products */ = {
+		47F8D1D31F4EB3F200A3D2B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				47F8D1731F4E6EDB00A3D2B9 /* ConfettiSwift.app */,
+				47F8D1D21F4EB3F200A3D2B9 /* ConfettiObjC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		47F8D1751F4E6EDB00A3D2B9 /* ConfettiSwift */ = {
+		47F8D1D41F4EB3F200A3D2B9 /* ConfettiObjC */ = {
 			isa = PBXGroup;
 			children = (
-				47F8D1761F4E6EDB00A3D2B9 /* AppDelegate.swift */,
-				47F8D18B1F4E6F5800A3D2B9 /* HomeViewController.swift */,
-				47F8D1931F4E759200A3D2B9 /* HomeViewController.xib */,
-				47F8D1911F4E724800A3D2B9 /* Confetti.swift */,
-				47F8D1821F4E6EDB00A3D2B9 /* Info.plist */,
-				47F8D1881F4E6F1400A3D2B9 /* LaunchScreen.xib */,
+				47F8D1EC1F4EB41B00A3D2B9 /* AppDelegate.h */,
+				47F8D1ED1F4EB41B00A3D2B9 /* AppDelegate.m */,
+				47F8D1EE1F4EB41B00A3D2B9 /* Confetti.h */,
+				47F8D1EF1F4EB41B00A3D2B9 /* Confetti.m */,
+				47F8D1F01F4EB41B00A3D2B9 /* HomeViewController.h */,
+				47F8D1F11F4EB41B00A3D2B9 /* HomeViewController.m */,
+				47F8D1F21F4EB41B00A3D2B9 /* HomeViewController.xib */,
+				47F8D1E61F4EB3F200A3D2B9 /* Info.plist */,
+				47F8D1F71F4EB43700A3D2B9 /* LaunchScreen.xib */,
+				47F8D1D51F4EB3F200A3D2B9 /* Supporting Files */,
 			);
-			path = ConfettiSwift;
+			path = ConfettiObjC;
+			sourceTree = "<group>";
+		};
+		47F8D1D51F4EB3F200A3D2B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47F8D1D61F4EB3F200A3D2B9 /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		47F8D1721F4E6EDB00A3D2B9 /* ConfettiSwift */ = {
+		47F8D1D11F4EB3F200A3D2B9 /* ConfettiObjC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 47F8D1851F4E6EDB00A3D2B9 /* Build configuration list for PBXNativeTarget "ConfettiSwift" */;
+			buildConfigurationList = 47F8D1E91F4EB3F200A3D2B9 /* Build configuration list for PBXNativeTarget "ConfettiObjC" */;
 			buildPhases = (
-				47F8D16F1F4E6EDB00A3D2B9 /* Sources */,
-				47F8D1701F4E6EDB00A3D2B9 /* Frameworks */,
-				47F8D1711F4E6EDB00A3D2B9 /* Resources */,
+				47F8D1CE1F4EB3F200A3D2B9 /* Sources */,
+				47F8D1CF1F4EB3F200A3D2B9 /* Frameworks */,
+				47F8D1D01F4EB3F200A3D2B9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ConfettiSwift;
-			productName = ConfettiSwift;
-			productReference = 47F8D1731F4E6EDB00A3D2B9 /* ConfettiSwift.app */;
+			name = ConfettiObjC;
+			productName = ConfettiObjC;
+			productReference = 47F8D1D21F4EB3F200A3D2B9 /* ConfettiObjC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		47F8D16B1F4E6EDB00A3D2B9 /* Project object */ = {
+		47F8D1CA1F4EB3F200A3D2B9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = personal;
 				TargetAttributes = {
-					47F8D1721F4E6EDB00A3D2B9 = {
+					47F8D1D11F4EB3F200A3D2B9 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = FAHA792R32;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 47F8D16E1F4E6EDB00A3D2B9 /* Build configuration list for PBXProject "ConfettiSwift" */;
+			buildConfigurationList = 47F8D1CD1F4EB3F200A3D2B9 /* Build configuration list for PBXProject "ConfettiObjC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -109,46 +125,47 @@
 				en,
 				Base,
 			);
-			mainGroup = 47F8D16A1F4E6EDB00A3D2B9;
-			productRefGroup = 47F8D1741F4E6EDB00A3D2B9 /* Products */;
+			mainGroup = 47F8D1C91F4EB3F200A3D2B9;
+			productRefGroup = 47F8D1D31F4EB3F200A3D2B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				47F8D1721F4E6EDB00A3D2B9 /* ConfettiSwift */,
+				47F8D1D11F4EB3F200A3D2B9 /* ConfettiObjC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		47F8D1711F4E6EDB00A3D2B9 /* Resources */ = {
+		47F8D1D01F4EB3F200A3D2B9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F8D18A1F4E6F1400A3D2B9 /* LaunchScreen.xib in Resources */,
-				47F8D1941F4E759200A3D2B9 /* HomeViewController.xib in Resources */,
+				47F8D1F91F4EB43700A3D2B9 /* LaunchScreen.xib in Resources */,
+				47F8D1F61F4EB41B00A3D2B9 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		47F8D16F1F4E6EDB00A3D2B9 /* Sources */ = {
+		47F8D1CE1F4EB3F200A3D2B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F8D1921F4E724800A3D2B9 /* Confetti.swift in Sources */,
-				47F8D1771F4E6EDB00A3D2B9 /* AppDelegate.swift in Sources */,
-				47F8D18D1F4E6F5800A3D2B9 /* HomeViewController.swift in Sources */,
+				47F8D1F31F4EB41B00A3D2B9 /* AppDelegate.m in Sources */,
+				47F8D1D71F4EB3F200A3D2B9 /* main.m in Sources */,
+				47F8D1F41F4EB41B00A3D2B9 /* Confetti.m in Sources */,
+				47F8D1F51F4EB41B00A3D2B9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		47F8D1881F4E6F1400A3D2B9 /* LaunchScreen.xib */ = {
+		47F8D1F71F4EB43700A3D2B9 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				47F8D1891F4E6F1400A3D2B9 /* Base */,
+				47F8D1F81F4EB43700A3D2B9 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -156,7 +173,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		47F8D1831F4E6EDB00A3D2B9 /* Debug */ = {
+		47F8D1E71F4EB3F200A3D2B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -201,12 +218,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		47F8D1841F4E6EDB00A3D2B9 /* Release */ = {
+		47F8D1E81F4EB3F200A3D2B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,60 +259,57 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		47F8D1861F4E6EDB00A3D2B9 /* Debug */ = {
+		47F8D1EA1F4EB3F200A3D2B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FAHA792R32;
-				INFOPLIST_FILE = ConfettiSwift/Info.plist;
+				INFOPLIST_FILE = ConfettiObjC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = personal.ConfettiSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = personal.ConfettiObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		47F8D1871F4E6EDB00A3D2B9 /* Release */ = {
+		47F8D1EB1F4EB3F200A3D2B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FAHA792R32;
-				INFOPLIST_FILE = ConfettiSwift/Info.plist;
+				INFOPLIST_FILE = ConfettiObjC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = personal.ConfettiSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = personal.ConfettiObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		47F8D16E1F4E6EDB00A3D2B9 /* Build configuration list for PBXProject "ConfettiSwift" */ = {
+		47F8D1CD1F4EB3F200A3D2B9 /* Build configuration list for PBXProject "ConfettiObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				47F8D1831F4E6EDB00A3D2B9 /* Debug */,
-				47F8D1841F4E6EDB00A3D2B9 /* Release */,
+				47F8D1E71F4EB3F200A3D2B9 /* Debug */,
+				47F8D1E81F4EB3F200A3D2B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		47F8D1851F4E6EDB00A3D2B9 /* Build configuration list for PBXNativeTarget "ConfettiSwift" */ = {
+		47F8D1E91F4EB3F200A3D2B9 /* Build configuration list for PBXNativeTarget "ConfettiObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				47F8D1861F4E6EDB00A3D2B9 /* Debug */,
-				47F8D1871F4E6EDB00A3D2B9 /* Release */,
+				47F8D1EA1F4EB3F200A3D2B9 /* Debug */,
+				47F8D1EB1F4EB3F200A3D2B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 47F8D16B1F4E6EDB00A3D2B9 /* Project object */;
+	rootObject = 47F8D1CA1F4EB3F200A3D2B9 /* Project object */;
 }
