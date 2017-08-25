@@ -41,12 +41,15 @@ ConfettiPointRange ConfettiPointRangeMake(CGRect rect);
 
 #pragma mark *** 构造方法 ***
 
-- (instancetype)initWithView:(UIView *)view startRange:(ConfettiPointRange)startRange endRange:(ConfettiPointRange)endRange;
+- (instancetype)initWithStartRange:(ConfettiPointRange)startRange endRange:(ConfettiPointRange)endRange;
 
 #pragma mark *** 逻辑 ***
 
 ///开始撒花
 - (void)start;
+///开始撒花
+- (void)startOnView:(UIView *)view;
+
 ///结束撒花
 - (void)end;
 

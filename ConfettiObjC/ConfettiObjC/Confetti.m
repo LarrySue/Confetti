@@ -49,9 +49,8 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
 
 #pragma mark *** 构造方法 ***
 
-- (instancetype)initWithView:(UIView *)view startRange:(ConfettiPointRange)startRange endRange:(ConfettiPointRange)endRange {
+- (instancetype)initWithStartRange:(ConfettiPointRange)startRange endRange:(ConfettiPointRange)endRange {
     if (self = [super init]) {
-        self.view = view;
         self.startRange = startRange;
         self.endRange = endRange;
         
@@ -76,6 +75,10 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
 
 ///开始撒花
 - (void)start {
+    [self startOnView:[UIApplication sharedApplication].delegate.window];
+}
+- (void)startOnView:(UIView *)view {
+    self.view = view;
     self.displayLink.paused = NO;
 }
 ///结束撒花

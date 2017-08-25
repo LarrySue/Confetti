@@ -47,7 +47,7 @@
     ConfettiPointRange startRange = ConfettiPointRangeMake(CGRectMake(0, 0, ScreenWidth, 0));
     ConfettiPointRange endRange = ConfettiPointRangeMake(CGRectMake(-ScreenWidth * 1.5, ScreenHeight * 1.5, ScreenWidth * 3.0, ScreenHeight * 0.5));
     
-    self.confetti = [[Confetti alloc] initWithView:self.view startRange:startRange endRange:endRange];
+    self.confetti = [[Confetti alloc] initWithStartRange:startRange endRange:endRange];
     
     ///此属性若不定义 则采用默认红绿蓝三色
     self.confetti.colors = @[RGB(0, 255.0, 255.0),

@@ -63,8 +63,8 @@ class Confetti: NSObject {
     
     // MARK: *** 构造 ***
     
-    init(on view: UIView, from startRange: ConfettiPointRange, to endRange: ConfettiPointRange) {
-        self.view = view
+    init(from startRange: ConfettiPointRange, to endRange: ConfettiPointRange) {
+        self.view = (UIApplication.shared.delegate?.window)!!
         self.startRange = startRange
         self.endRange = endRange
         
@@ -92,6 +92,11 @@ class Confetti: NSObject {
     
     ///开始撒花
     public func start() {
+        displayLink?.isPaused = false
+    }
+    ///开始撒花
+    public func start(on view: UIView) {
+        self.view = view
         displayLink?.isPaused = false
     }
     ///结束撒花

@@ -12,7 +12,7 @@ let screenWidth = UIScreen.main.bounds.size.width
 let screenHeight = UIScreen.main.bounds.size.height
 
 func RGB(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> UIColor {
-    return UIColor(red: red / 255.0, green: red / 255.0, blue: red / 255.0, alpha: 1.0)
+    return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0)
 }
 
 // MARK: -
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         
         let startRange = ConfettiPointRange(rect: CGRect(x: 0, y: 0, width: screenWidth, height: 0))
         let endRange = ConfettiPointRange(rect: CGRect(x: -screenWidth * 1.5, y: screenHeight * 1.5, width: screenWidth * 3.0, height: screenHeight * 0.5))
-        confetti = Confetti(on: view, from: startRange, to: endRange)
+        confetti = Confetti(from: startRange, to: endRange)
         
         ///此属性若不定义 则采用默认红绿蓝三色
         confetti!.colors = [RGB(0, 255.0, 255.0),
