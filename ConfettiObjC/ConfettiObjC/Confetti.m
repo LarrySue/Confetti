@@ -53,6 +53,7 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
     if (self = [super init]) {
         self.startRange = startRange;
         self.endRange = endRange;
+        self.view = [UIApplication sharedApplication].delegate.window;
         
         self.colors = @[[UIColor redColor], [UIColor greenColor], [UIColor blueColor]];
         self.density = 20;
@@ -74,11 +75,11 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
 #pragma mark *** 逻辑 ***
 
 ///开始撒花
-- (void)start {
-    [self startOnView:[UIApplication sharedApplication].delegate.window];
-}
 - (void)startOnView:(UIView *)view {
     self.view = view;
+    [self start];
+}
+- (void)start {
     self.displayLink.paused = NO;
 }
 ///结束撒花

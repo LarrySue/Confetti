@@ -91,12 +91,11 @@ class Confetti: NSObject {
     // MARK: *** 逻辑 ***
     
     ///开始撒花
-    public func start() {
-        displayLink?.isPaused = false
-    }
-    ///开始撒花
     public func start(on view: UIView) {
         self.view = view
+        start()
+    }
+    public func start() {
         displayLink?.isPaused = false
     }
     ///结束撒花
