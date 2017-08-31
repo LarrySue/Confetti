@@ -8,28 +8,28 @@
 
 #import "Confetti.h"
 
-ConfettiFloatRange ConfettiFloatRangeMake(CGFloat lower, CGFloat upper) {
+ConfettiFloatRange ConfettiFloatRangeMake(CGFloat lowerBound, CGFloat upperBound) {
     ConfettiFloatRange range;
     
-    range.lower = lower;
-    range.upper = upper;
+    range.lowerBound = lowerBound;
+    range.upperBound = upperBound;
     
     return range;
 }
 
-ConfettiPointRange ConfettiPointRangeMake(CGRect rect) {
+ConfettiPointRange ConfettiPointRangeMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
     ConfettiPointRange range;
     
-    range.rangeX = ConfettiFloatRangeMake(rect.origin.x, rect.origin.x + rect.size.width);
-    range.rangeY = ConfettiFloatRangeMake(rect.origin.y, rect.origin.y + rect.size.height);
+    range.rangeX = ConfettiFloatRangeMake(x, x + width);
+    range.rangeY = ConfettiFloatRangeMake(y, y + height);
     
     return range;
 }
 
-CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
+CGFloat confettiRandom(CGFloat lowerBound, CGFloat upperBound, NSInteger precision) {
     NSInteger offset = pow(10, precision);
     
-    return (arc4random_uniform(upper * offset - lower * offset) + lower * offset) / offset;
+    return (arc4random_uniform(upperBound * offset - lowerBound * offset) + lowerBound * offset) / offset;
 }
 
 @interface Confetti ()
@@ -57,6 +57,7 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
         
         self.colors = @[[UIColor redColor], [UIColor greenColor], [UIColor blueColor]];
         self.density = 20;
+        self.durationRange = ConfettiFloatRangeMake(5.0, 5.0);
         
         self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(throwConfetti)];
         [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
@@ -91,15 +92,15 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
 
 - (void)throwConfetti {
     
-    CGFloat startLowerX = self.startRange.rangeX.lower;
-    CGFloat startUpperX = self.startRange.rangeX.upper;
-    CGFloat startLowerY = self.startRange.rangeY.lower;
-    CGFloat startUpperY = self.startRange.rangeY.upper;
+    CGFloat startLowerX = self.startRange.rangeX.lowerBound;
+    CGFloat startUpperX = self.startRange.rangeX.upperBound;
+    CGFloat startLowerY = self.startRange.rangeY.lowerBound;
+    CGFloat startUpperY = self.startRange.rangeY.upperBound;
     
-    CGFloat endLowerX = self.endRange.rangeX.lower;
-    CGFloat endUpperX = self.endRange.rangeX.upper;
-    CGFloat endLowerY = self.endRange.rangeY.lower;
-    CGFloat endUpperY = self.endRange.rangeY.upper;
+    CGFloat endLowerX = self.endRange.rangeX.lowerBound;
+    CGFloat endUpperX = self.endRange.rangeX.upperBound;
+    CGFloat endLowerY = self.endRange.rangeY.lowerBound;
+    CGFloat endUpperY = self.endRange.rangeY.upperBound;
     
     UIView *confetti = [[UIView alloc] initWithFrame:CGRectMake(confettiRandom(startLowerX, startUpperX, 1), confettiRandom(startLowerY, startUpperY, 1), 15.0, 15.0)];
     UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(3.0, 3.0, confettiRandom(5.0, 8.0, 1), confettiRandom(5.0, 8.0, 1))];
@@ -112,7 +113,7 @@ CGFloat confettiRandom(CGFloat lower, CGFloat upper, NSInteger precision) {
     [self.view addSubview:confetti];
     [confetti addSubview:colorView];
     
-    [UIView animateWithDuration:confettiRandom(6.0, 8.0, 1) animations:^{
+    [UIView animateWithDuration:confettiRandom(self.durationRange.lowerBound, self.durationRange.upperBound, 1) animations:^{
         confetti.layer.transform = CATransform3DMakeTranslation(confettiRandom(endLowerX, endUpperX, 1), confettiRandom(endLowerY, endUpperY, 1), 0);
     } completion:^(BOOL finished) {
         if (finished) {

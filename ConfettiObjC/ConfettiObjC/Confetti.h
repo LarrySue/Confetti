@@ -8,21 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-struct ConfettiFloatRange {
-    CGFloat lower;
-    CGFloat upper;
-};
-typedef struct ConfettiFloatRange ConfettiFloatRange;
+typedef struct {
+    CGFloat lowerBound;
+    CGFloat upperBound;
+} ConfettiFloatRange;
 
-ConfettiFloatRange ConfettiFloatRangeMake(CGFloat lower, CGFloat upper);
+ConfettiFloatRange ConfettiFloatRangeMake(CGFloat lowerBound, CGFloat upperBound);
 
-struct ConfettiPointRange {
+typedef struct {
     ConfettiFloatRange rangeX;
     ConfettiFloatRange rangeY;
-};
-typedef struct ConfettiPointRange ConfettiPointRange;
+} ConfettiPointRange;
 
-ConfettiPointRange ConfettiPointRangeMake(CGRect rect);
+ConfettiPointRange ConfettiPointRangeMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height);
 
 #pragma mark -
 
@@ -30,10 +28,12 @@ ConfettiPointRange ConfettiPointRangeMake(CGRect rect);
 
 #pragma mark *** 属性 ***
 
-///色彩组
+///色彩组(默认R G B三种颜色)
 @property (nonatomic, strong) NSArray<UIColor *> *colors;
-///密度(每秒生成数量)
+///密度(每秒生成数量 默认20)
 @property (nonatomic, assign) NSInteger density;
+///移动时间(从初始位置移动到结束位置的时间 默认5秒)
+@property (nonatomic, assign) ConfettiFloatRange durationRange;
 
 #pragma mark *** 禁用方法 ***
 

@@ -29,8 +29,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let startRange = ConfettiPointRange(rect: CGRect(x: 0, y: 0, width: screenWidth, height: 0))
-        let endRange = ConfettiPointRange(rect: CGRect(x: -screenWidth * 1.5, y: screenHeight * 1.5, width: screenWidth * 3.0, height: screenHeight * 0.5))
+        let startRange = ConfettiPointRange(x: 0, y: 0, width: screenWidth, height: 0)
+        let endRange = ConfettiPointRange(x: -screenWidth * 1.5, y: screenHeight * 1.5, width: screenWidth * 4.0, height: screenHeight * 0.5)
         confetti = Confetti(from: startRange, to: endRange)
         
         ///此属性若不定义 则采用默认红绿蓝三色
@@ -41,6 +41,8 @@ class HomeViewController: UIViewController {
                            RGB(154.0, 205.0, 50.0)]
         ///此属性若不定义 则默认密度为每秒20个
         confetti!.density = 15
+        ///此属性若不定义 则色块持续移动时间默认为5秒
+        confetti!.durationRange = ConfettiFloatRange(from: 6.0, to: 8.0)
     }
     
     // MARK: *** 回调 ***

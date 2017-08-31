@@ -8,30 +8,60 @@
 
 import UIKit
 
-private struct ConfettiDoubleRange {
-    public var lower: Double
-    public var upper: Double
+public protocol Randomable {
+    associatedtype DataType
+    func random(decimal precision: UInt) -> DataType
+}
+
+// MARK: -
+
+public struct ConfettiFloatRange: Randomable {
+    public typealias DataType = CGFloat
     
-    public init(from lower: Double, to upper: Double) {
-        self.lower = lower
-        self.upper = upper
+    public var lowerBound: CGFloat
+    public var upperBound: CGFloat
+    
+    public init(from lowerBound: CGFloat, to upperBound: CGFloat) {
+        self.lowerBound = lowerBound
+        self.upperBound = upperBound
+    }
+    
+    public func random(decimal precision: UInt) -> DataType {
+        return CGFloat(ConfettiSwift.random(from: lowerBound, to: upperBound, decimal: precision))
     }
 }
-public struct ConfettiPointRange {
-    fileprivate var rangeX: ConfettiDoubleRange
-    fileprivate var rangeY: ConfettiDoubleRange
+public struct ConfettiPointRange: Randomable {
+    public typealias DataType = CGPoint
     
-    public init(rect: CGRect) {
-        self.rangeX = ConfettiDoubleRange(from: Double(rect.origin.x), to: Double(rect.origin.x + rect.size.width))
-        self.rangeY = ConfettiDoubleRange(from: Double(rect.origin.y), to: Double(rect.origin.y + rect.size.height))
+    fileprivate var rangeX: ConfettiFloatRange
+    fileprivate var rangeY: ConfettiFloatRange
+    
+    public init(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        self.rangeX = ConfettiFloatRange(from: x, to: x + width)
+        self.rangeY = ConfettiFloatRange(from: y, to: y + height)
+    }
+    
+    public func random(decimal precision: UInt) -> DataType {
+        
+        let x = ConfettiSwift.random(from: rangeX.lowerBound, to: rangeX.upperBound, decimal: precision)
+        let y = ConfettiSwift.random(from: rangeY.lowerBound, to: rangeY.upperBound, decimal: precision)
+        
+        return CGPoint(x: x, y: y)
     }
 }
 
-private func random(from lower: Double, to upper: Double, decimal precision: UInt) -> Double {
+private func random(from lowerBound: Double, to upperBound: Double, decimal precision: UInt) -> Double {
     let offset = pow(10, Double(precision))
     
-    return (Double(arc4random_uniform(UInt32(upper * offset - lower * offset))) + lower * offset) / offset
+    return (Double(arc4random_uniform(UInt32(upperBound * offset - lowerBound * offset))) + lowerBound * offset) / offset
 }
+private func random(from lowerBound: Int, to upperBound: Int, decimal precision: UInt) -> Double {
+    return random(from: Double(lowerBound), to: Double(upperBound), decimal: precision)
+}
+private func random(from lowerBound: CGFloat, to upperBound: CGFloat, decimal precision: UInt) -> Double {
+    return random(from: Double(lowerBound), to: Double(upperBound), decimal: precision)
+}
+
 
 // MARK: -
 
@@ -48,9 +78,9 @@ class Confetti: NSObject {
     ///终点范围
     private var endRange: ConfettiPointRange
     
-    ///色彩
+    ///色彩组(默认R G B三种颜色)
     public var colors: [UIColor] = [.red, .green, .blue]
-    ///密度
+    ///密度(每秒生成数量 默认20)
     public var density: Int = 20 {
         didSet {
             if #available(iOS 10.0, *) {
@@ -60,6 +90,8 @@ class Confetti: NSObject {
             }
         }
     }
+    ///移动时间(从初始位置移动到结束位置的时间 默认5秒)
+    public var durationRange: ConfettiFloatRange = ConfettiFloatRange(from: 5.0, to: 5.0)
     
     // MARK: *** 构造 ***
     
@@ -106,31 +138,25 @@ class Confetti: NSObject {
     // MARK: *** 回调 ***
     
     ///撒纸屑
+    
     @objc private func throwConfetti() {
         
-        let startLowerX = startRange.rangeX.lower
-        let startUpperX = startRange.rangeX.upper
-        let startLowerY = startRange.rangeY.lower
-        let startUpperY = startRange.rangeY.upper
+        let startPoint = startRange.random(decimal: 1)
+        let endPoint = endRange.random(decimal: 1)
         
-        let endLowerX = endRange.rangeX.lower
-        let endUpperX = endRange.rangeX.upper
-        let endLowerY = endRange.rangeY.lower
-        let endUpperY = endRange.rangeY.upper
-        
-        let confetti = UIView(frame: CGRect(x: random(from: startLowerX, to: startUpperX, decimal: 1), y: random(from: startLowerY, to: startUpperY, decimal: 1), width: 15.0, height: 15.0))
+        let confetti = UIView(frame: CGRect(x: startPoint.x, y: startPoint.y, width: 15.0, height: 15.0))
         let colorView = UIView(frame: CGRect(x: 3, y: 3, width: random(from: 5.0, to: 8.0, decimal: 1), height: random(from: 5.0, to: 8.0, decimal: 1)))
         
         confetti.backgroundColor = .clear
         
-        colorView.backgroundColor = colors[Int(random(from: 0, to: Double(colors.count), decimal: 0))]
+        colorView.backgroundColor = colors[Int(random(from: 0, to: colors.count, decimal: 0))]
         colorView.layer.transform = CATransform3DMakeRotation(CGFloat(random(from: 0, to: Double.pi * 2, decimal: 1)), CGFloat(random(from: -1, to: 1, decimal: 2)), CGFloat(random(from: -1, to: 1, decimal: 2)), CGFloat(random(from: -1, to: 1, decimal: 2)))
         
         view.addSubview(confetti)
         confetti.addSubview(colorView)
         
-        UIView.animate(withDuration: TimeInterval(random(from: 6.0, to: 8.0, decimal: 1)), animations: {
-            confetti.layer.transform = CATransform3DMakeTranslation(CGFloat(random(from: endLowerX, to: endUpperX, decimal: 1)), CGFloat(random(from: endLowerY, to: endUpperY, decimal: 1)), 0)
+        UIView.animate(withDuration: TimeInterval(durationRange.random(decimal: 1)), animations: {
+            confetti.layer.transform = CATransform3DMakeTranslation(endPoint.x, endPoint.y, 0)
         }) { (finish) in
             if finish {
                 confetti.removeFromSuperview()

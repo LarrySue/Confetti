@@ -44,8 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ConfettiPointRange startRange = ConfettiPointRangeMake(CGRectMake(0, 0, ScreenWidth, 0));
-    ConfettiPointRange endRange = ConfettiPointRangeMake(CGRectMake(-ScreenWidth * 1.5, ScreenHeight * 1.5, ScreenWidth * 3.0, ScreenHeight * 0.5));
+    ConfettiPointRange startRange = ConfettiPointRangeMake(0, 0, ScreenWidth, 0);
+    ConfettiPointRange endRange = ConfettiPointRangeMake(-ScreenWidth * 1.5, ScreenHeight * 1.5, ScreenWidth * 4.0, ScreenHeight * 0.5);
     
     self.confetti = [[Confetti alloc] initWithStartRange:startRange endRange:endRange];
     
@@ -57,6 +57,8 @@
                              RGB(154.0, 205.0, 50.0)];
     ///此属性若不定义 则默认密度为每秒20个
     self.confetti.density = 15;
+    ///此属性若不定义 则色块持续移动时间为5秒
+    self.confetti.durationRange = ConfettiFloatRangeMake(6.0, 8.0);
 }
 
 #pragma mark *** 回调 ***
