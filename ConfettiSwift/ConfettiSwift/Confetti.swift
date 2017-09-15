@@ -78,6 +78,11 @@ class Confetti: NSObject {
     ///终点范围
     private var endRange: ConfettiPointRange
     
+    ///花池
+    private var confettiPool: [UIView] = []
+    ///自动释放锁
+    private var autoFree: Bool = true
+    
     ///色彩组(默认R G B三种颜色)
     public var colors: [UIColor] = [.red, .green, .blue]
     ///密度(每秒生成数量 默认20)
@@ -128,11 +133,27 @@ class Confetti: NSObject {
         start()
     }
     public func start() {
+        autoFree = true
         displayLink?.isPaused = false
     }
     ///结束撒花
     public func end() {
         displayLink?.isPaused = true
+    }
+    ///结束并直接移除所有花
+    public func endWithRemoveAllConfetti() {
+        end()
+        autoFree = false
+        for confetti in confettiPool {
+            confetti.removeFromSuperview()
+        }
+        confettiPool.removeAll()
+    }
+    ///延迟结束并直接移除所有花
+    public func endWithRemoveAllConfetti(after delay: TimeInterval) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.endWithRemoveAllConfetti()
+        }
     }
     
     // MARK: *** 回调 ***
@@ -154,12 +175,18 @@ class Confetti: NSObject {
         
         view.addSubview(confetti)
         confetti.addSubview(colorView)
+        confettiPool.append(confetti)
         
         UIView.animate(withDuration: TimeInterval(durationRange.random(decimal: 1)), animations: {
             confetti.layer.transform = CATransform3DMakeTranslation(endPoint.x, endPoint.y, 0)
         }) { (finish) in
-            if finish {
+            if finish && self.autoFree {
                 confetti.removeFromSuperview()
+                if self.confettiPool.contains(confetti) {
+                    if let idx = self.confettiPool.index(where: {$0 == confetti}) {
+                        self.confettiPool.remove(at: idx)
+                    }
+                }
             }
         }
     }

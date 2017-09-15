@@ -43,6 +43,11 @@ CGFloat confettiRandom(CGFloat lowerBound, CGFloat upperBound, NSInteger precisi
 ///终点范围
 @property (nonatomic, assign) ConfettiPointRange endRange;
 
+///花池
+@property (nonatomic, strong) NSMutableArray<UIView *> *confettiPool;
+///自动释放锁
+@property (nonatomic, assign) BOOL autoFree;
+
 @end
 
 @implementation Confetti
@@ -62,6 +67,8 @@ CGFloat confettiRandom(CGFloat lowerBound, CGFloat upperBound, NSInteger precisi
         self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(throwConfetti)];
         [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
         self.displayLink.paused = YES;
+        
+        self.confettiPool = [NSMutableArray array];
     }
     return self;
 }
@@ -81,11 +88,26 @@ CGFloat confettiRandom(CGFloat lowerBound, CGFloat upperBound, NSInteger precisi
     [self start];
 }
 - (void)start {
+    self.autoFree = YES;
     self.displayLink.paused = NO;
 }
+
 ///结束撒花
 - (void)end {
     self.displayLink.paused = YES;
+}
+///结束并直接移除所有花
+- (void)endWithRemoveAllConfetti {
+    [self end];
+    self.autoFree = NO;
+    for (UIView *confetti in self.confettiPool) {
+        [confetti removeFromSuperview];
+    }
+    [self.confettiPool removeAllObjects];
+}
+///延迟结束并直接移除所有花
+- (void)endWithRemoveAllConfettiAfterDelay:(NSTimeInterval)delay {
+    [self performSelector:@selector(endWithRemoveAllConfetti) withObject:nil afterDelay:delay];
 }
 
 #pragma mark *** 回调 ***
@@ -112,12 +134,16 @@ CGFloat confettiRandom(CGFloat lowerBound, CGFloat upperBound, NSInteger precisi
     
     [self.view addSubview:confetti];
     [confetti addSubview:colorView];
+    [self.confettiPool addObject:confetti];
     
     [UIView animateWithDuration:confettiRandom(self.durationRange.lowerBound, self.durationRange.upperBound, 1) animations:^{
         confetti.layer.transform = CATransform3DMakeTranslation(confettiRandom(endLowerX, endUpperX, 1), confettiRandom(endLowerY, endUpperY, 1), 0);
     } completion:^(BOOL finished) {
-        if (finished) {
+        if (finished && self.autoFree) {
             [confetti removeFromSuperview];
+            if ([self.confettiPool containsObject:confetti]) {
+                [self.confettiPool removeObject:confetti];
+            }
         }
     }];
 }

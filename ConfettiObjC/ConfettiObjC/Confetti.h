@@ -47,10 +47,13 @@ ConfettiPointRange ConfettiPointRangeMake(CGFloat x, CGFloat y, CGFloat width, C
 
 ///开始撒花
 - (void)start;
-///开始撒花
 - (void)startOnView:(UIView *)view;
 
 ///结束撒花
 - (void)end;
+///结束并直接移除所有花
+- (void)endWithRemoveAllConfetti;
+///延迟结束并直接移除所有花
+- (void)endWithRemoveAllConfettiAfterDelay:(NSTimeInterval)delay;
 
 @end
