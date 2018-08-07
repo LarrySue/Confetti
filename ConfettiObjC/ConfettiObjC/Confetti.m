@@ -153,11 +153,7 @@ CGFloat confettiRandom(CGFloat lowerBound, CGFloat upperBound, NSInteger precisi
 - (void)setDensity:(NSInteger)density {
     _density = density;
     
-    if ([[UIDevice alloc] init].systemVersion.doubleValue >= 10.0) {
-        self.displayLink.preferredFramesPerSecond = density;
-    } else {
-        self.displayLink.frameInterval = 60 / density;
-    }
+    self.displayLink.preferredFramesPerSecond = density;
 }
 
 @end

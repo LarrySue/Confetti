@@ -108,14 +108,10 @@ class Confetti: NSObject {
         super.init()
         
         displayLink = CADisplayLink(target: self, selector: #selector(throwConfetti))
-        displayLink?.add(to: RunLoop.main, forMode: .commonModes)
+        displayLink?.add(to: RunLoop.main, forMode: .common)
         displayLink?.isPaused = true
         
-        if #available(iOS 10.0, *) {
-            displayLink?.preferredFramesPerSecond = density
-        } else {
-            displayLink?.frameInterval = 60 / density
-        }
+        displayLink?.preferredFramesPerSecond = density
     }
     
     // MARK: *** 析构 ***
