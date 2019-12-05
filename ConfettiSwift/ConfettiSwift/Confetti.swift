@@ -100,6 +100,8 @@ class Confetti: NSObject {
     
     // MARK: *** 构造 ***
     
+    ///测试ssh
+    
     init(from startRange: ConfettiPointRange, to endRange: ConfettiPointRange) {
         self.view = (UIApplication.shared.delegate?.window)!!
         self.startRange = startRange
